@@ -1,8 +1,8 @@
 # Site settings
-title: Clean Blog
+title: minsik's blog
 header-img: img/home-bg.jpg
 email: your-email@yourdomain.com
-description: "Write your site description here. It will be used as your sites meta description as well!"
+description: "about software development"
 baseurl: "https://yms9654.github.io"
 url: "https://yms9654.github.io"
 twitter_username: SBootstrap
