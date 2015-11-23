@@ -1,20 +1,18 @@
 # Site settings
 title: minsik's blog
 header-img: img/home-bg.jpg
-email: your-email@yourdomain.com
+email: yms9654@gmail.com
 description: "about software development"
-baseurl: "https://yms9654.github.io"
 url: "https://yms9654.github.io"
-twitter_username: SBootstrap
-github_username:  davidtmiller
-facebook_username:  IronSummitMedia
+twitter_username: yms9654
+github_username:  yms9654
 
 # Build settings
 markdown: kramdown
 highlighter: pygments
 permalink: pretty
 paginate: 5
-exclude: ["less","README.md"]
+exclude: ["less","README.md", "vendor/bundle"]
 
 gems:
   - jekyll-assets
