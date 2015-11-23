@@ -1,5 +1,7 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+
 body {
-  font-family: 'Lora', 'Times New Roman', serif;
+  font-family: 'Nanum Gothic Coding', 'Lora', 'Times New Roman', serif;
   font-size: 20px;
   color: #404040;
 }
