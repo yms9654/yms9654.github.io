@@ -1,0 +1,17 @@
+---
+layout: post
+title: 'Git push 할때 HTTP code = 403 fatal: The remote end hung up unexpectedly 에러
+  날때 '
+date: '2015-08-19T21:25:00.001-07:00'
+author: MinSik
+tags:
+- 403 error
+- push
+- shallow clone
+- git
+modified_time: '2015-08-20T21:15:55.680-07:00'
+blogger_id: tag:blogger.com,1999:blog-902933560129960148.post-6565789807374293489
+blogger_orig_url: http://yms9654.blogspot.com/2015/08/git-push-http-code-403-fatal-remote-end.html
+---
+
+이런 경우 일단 shallow clone 인지 확인해봐야 합니다.<br />(shallow clone 은 맨 처음 clone 할때 전체를 받아오지 않고<br />depth 옵션을 주어서 history 일부분만 가져오는 것을 말합니다.)<br /><blockquote class="tr_bq">git log</blockquote>위의 명령어를 치면 history가 나오는데 그걸 보고 확인합니다.<br />만약 shallow clone 이면 이렇게 push 가 안되고 에러가 나는 경우가 있습니다.<br />이때 해결책은 기존 git 정보를 지우고 다시 init 을 하면 됩니다.<br /><blockquote class="tr_bq">rm -rf .git<br />git init<br />git add .<br />git commit<br />git remote add origin &lt;git repository url&gt;<br />git push origin master</blockquote>

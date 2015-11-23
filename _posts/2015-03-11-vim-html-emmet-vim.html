@@ -1,0 +1,16 @@
+---
+layout: post
+title: vim 에서 html 작성할때 굉장히 편리한 플러그인 emmet-vim
+date: '2015-03-11T01:18:00.000-07:00'
+author: MinSik
+tags:
+- plugin
+- emmet
+- html
+- vim
+modified_time: '2015-03-11T01:18:04.691-07:00'
+blogger_id: tag:blogger.com,1999:blog-902933560129960148.post-2988415652211081054
+blogger_orig_url: http://yms9654.blogspot.com/2015/03/vim-html-emmet-vim.html
+---
+
+그동안 vi에서 html 작성할때마다 너무 귀찮다는 생각을 했었다.<br />레일즈 개발할때는&nbsp;<a href="http://haml.info/" target="_blank">haml</a>을 사용해서 괜찮았는데...<br />그래서 오늘 검색을 해보다 알게된 플러그인이 있는데<br />사용해보니 생각보다 훨씬 편리했다.<br /><br />이름은 emmet 이고 주소는&nbsp;<a href="https://github.com/mattn/emmet-vim">https://github.com/mattn/emmet-vim</a><br />나는 vundle을 사용해서 .vimrc 파일에<br /><br />Plugin 'mattn/emmet-vim'<br /><br />위에 처럼 한줄만 추가하면 설치가 된다.<br /><br />간단히 말하면 css selector 문법처럼 쓰고 단축키로 ctrl + y + , 를 누르면 html 태그가 생성된다.<br />예를 들어서<br /><br />div#page&gt;div.logo+ul#navigation&gt;li*5&gt;a<br /><br />위와 같이 입력하고 단축키를 누르면 아래 코드가 생성된다.<br /><br /><script src="https://gist.github.com/yms9654/a774e81dbe9549f53c44.js"></script>

@@ -1,0 +1,25 @@
+---
+layout: post
+title: "소스코드에서 키워드를 추출하는 툴 code-words 소개"
+date: '2015-02-12T23:41:00.000-08:00'
+author: MinSik
+tags:
+- "추출"
+- javascript
+- c
+- python
+- source code
+- "키워드"
+- word count
+- wordcloud
+- ruby
+- keyword
+- extraction
+- code-words
+- java
+modified_time: '2015-02-12T23:41:28.325-08:00'
+blogger_id: tag:blogger.com,1999:blog-902933560129960148.post-5350249727198902737
+blogger_orig_url: http://yms9654.blogspot.com/2015/02/code-words.html
+---
+
+<div class="separator" style="clear: both; text-align: center;"><a href="https://camo.githubusercontent.com/044ded58ccd3d9a745e24b2f71505c912518ce19/68747470733a2f2f7261772e6769746875622e636f6d2f6e70727963652f636f64652d776f7264732f6d61737465722f6578616d706c65732f6d756c7469706c617965722d626f6172642d67616d652e706e67" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="300" src="https://camo.githubusercontent.com/044ded58ccd3d9a745e24b2f71505c912518ce19/68747470733a2f2f7261772e6769746875622e636f6d2f6e70727963652f636f64652d776f7264732f6d61737465722f6578616d706c65732f6d756c7469706c617965722d626f6172642d67616d652e706e67" width="400" /></a></div>소스코드에서 키워드를 추출할 일이 생겨서 구글링을 하다 괜찮은 프로젝트를 발견했다.<br /><a href="https://github.com/npryce/code-words" target="_blank">https://github.com/npryce/code-words</a><br /><br />맨처음 mac에서 테스트 해봤을때는 이상하게 동작해서 이게 뭐지?? 이랬었는데<br />Readme 파일을 잘 읽어보니 linux에서 제대로 동작 한다고 한다.<br /><br />C 부터 java, ruby, python, javascript, scala 심지어 Haskell 까지 많은 언어를 지원한다.<br />나는 java로 된 프로젝트로 테스트를 해보았는데 java의 키워드나 primitive type들을 알아서 처리해주고 필요한 경우 따로 추가해줄 수도 있다.<br />stop words도 지정해서 불필요한 단어는 제외해줄 수도 있다.<br /><br />참고로 맨 마지막 파이프에&nbsp;wordcloud 를 사용하면 위와 같이 태그 클라우드를 이미지 파일로 생성해주고<br />word-count 를 사용하면 단어별로 카운트를 해준다.<br /><br />리눅스에서 파이프를 이용하면(소스를 git log 에서 불러온다든지) 다양한 조합이 가능해진다.

@@ -1,0 +1,18 @@
+---
+layout: post
+title: "윈도우용 vim 사용시 클립보드로 복사하기"
+date: '2015-02-02T23:43:00.002-08:00'
+author: MinSik
+tags:
+- clipboard
+- gvim
+- "윈도우"
+- "클립보드"
+- vim
+- copy
+modified_time: '2015-02-02T23:43:48.129-08:00'
+blogger_id: tag:blogger.com,1999:blog-902933560129960148.post-6752810550137164294
+blogger_orig_url: http://yms9654.blogspot.com/2015/02/vim.html
+---
+
+윈도우에서도 간단한 텍스트 에디터로 gVim을 설치해서 사용하고 있었는데<br />이게 yy 같은 명령어를 사용해서 한줄 복사해도<br />윈도우 클립보드에 들어가지는 않아서 불편했었다.<br /><br />검색을 해보니 설정파일에 아래와 같이 추가하니 잘 동작한다.<br /><br /><pre style="background-color: #eeeeee; border: 0px; color: #222222; font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, sans-serif; font-size: 13px; margin-bottom: 1em; max-height: 600px; overflow: auto; padding: 5px; width: auto; word-wrap: normal;"><code style="border: 0px; font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, sans-serif; margin: 0px; padding: 0px; white-space: inherit;">set clipboard=unnamed</code></pre>

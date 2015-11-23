@@ -1,0 +1,13 @@
+---
+layout: post
+title: putty 에서 생성한 키파일로 ssh 로그인 안될때
+date: '2015-01-28T16:31:00.001-08:00'
+author: MinSik
+tags:
+- putty ssh login public key
+modified_time: '2015-01-28T16:31:59.303-08:00'
+blogger_id: tag:blogger.com,1999:blog-902933560129960148.post-3430952802436362784
+blogger_orig_url: http://yms9654.blogspot.com/2015/01/putty-ssh.html
+---
+
+putty와 openssh에서 사용하는 public key 포맷이 약간 달라서 생기는 문제인것 같다.<br /><br />putty에서 생성한 public key는<br /><br /><blockquote class="tr_bq">---- BEGIN SSH2 PUBLIC KEY ----<br />Comment: "rsa-key-20141215"<br />AAAAB3NzaC1yc2EAAAABJQAAAQEApY5pbRYtPoHQ1F8WzOWIz3DB+ki3oU2gXssc<br />9+W5K/4SQnduNZjoAI07MmLLUYhrDaypHkU3Xc/td7VwRnhjy8bSfevx1fXrGNBS<br />rSVQc37svHTGBXLIM9hcnP6i7xudvK870PnDzom3NeDYi0v8iIywzn8GSvt0d+1R<br />KxiqW63WnPTOnP2j/4yipeqcTVIOvSWZi/pbnry9HoKugoP1BH2/zQH5GbpM/n3+<br />DUeZarbs5btT1v3aSmNlyk+XKY9AZM5SPCKTkbM04EbvcwBeY+z9EWdh2zyok1zh<br />ACegGM2k+BBB5lCFst503DNNylpAhCroPeS8Icmu3SFO/D4wZQ==<br />---- END SSH2 PUBLIC KEY ----</blockquote><div><br /></div><div>이런식으로 생성되는데</div><div>이걸 그대로 서버에 저장하고 ssh 로그인 하려고 하면 Server refused our key 이런 메세지가 나오면서 자동 로그인이 안된다.</div><div><br /></div><div>해결방법은 아래와 같은 포맷으로 변경해서 저장하면 된다.</div><div><br /></div><blockquote class="tr_bq">ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEApY5pbRYtPoHQ1F8WzOWIz3DB+ki3oU2gXssc9+W5K/4SQnduNZjoAI07MmLLUYhrDaypHkU3Xc/td7VwRnhjy8bSfevx1fXrGNBSrSVQc37svHTGBXLIM9hcnP6i7xudvK870PnDzom3NeDYi0v8iIywzn8GSvt0d+1RKxiqW63WnPTOnP2j/4yipeqcTVIOvSWZi/pbnry9HoKugoP1BH2/zQH5GbpM/n3+DUeZarbs5btT1v3aSmNlyk+XKY9AZM5SPCKTkbM04EbvcwBeY+z9EWdh2zyok1zhACegGM2k+BBB5lCFst503DNNylpAhCroPeS8Icmu3SFO/D4wZQ==</blockquote><div><br /></div><div>앞에 ssh-rsa 를 붙이고 키파일 내용을 한줄로 만들어야 한다.</div><div>만약 이렇게 변경해도 같은 에러 메세지가 나온다면</div><div><br /></div><blockquote class="tr_bq">$ chmod 600 authorized_keys</blockquote>

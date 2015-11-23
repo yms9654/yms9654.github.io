@@ -1,0 +1,14 @@
+---
+layout: post
+title: Meteor 에서 외부 javascript library를 추가하는 방법
+date: '2015-01-28T16:50:00.001-08:00'
+author: MinSik
+tags:
+- meteor
+- javascript library
+modified_time: '2015-01-28T16:51:00.172-08:00'
+blogger_id: tag:blogger.com,1999:blog-902933560129960148.post-1113200124377122446
+blogger_orig_url: http://yms9654.blogspot.com/2015/01/meteor-javascript-library.html
+---
+
+이것 때문에 삽질을 많이해서 정리를 한번 해보았다.<br /><br />1. &lt;head&gt; 안에 들어가는 js 인 경우<br /><br />보통은 client/lib 안에 넣으면 되고 global 변수를 사용하는 경우는 client/lib/compatibility 에 넣으면 된다고 함.<br /><br />2. html이 다 로드 되고 나서 불러야 하는 경우<br /><br />먼저 external-file-loader를 추가한다.<br /><br />$ meteor add mrt:external-file-loader<br /><br />main.js 같은 곳에 아래 코드를 추가<br /><br /><script src="https://gist.github.com/yms9654/57195aaf6cbb82e195fc.js"></script> 3. 마지막으로 특정 페이지에서만 필요한 경우<br /><br />이 경우 일단 router 설정이 되어 있어야 한다.<br /><br />wait-on-lib를 추가<br /><br />$ meteor add manuelschoebel:wait-on-lib<br /><br />router.js 수정<br /><br /><script src="https://gist.github.com/yms9654/a24b82a38be80248a006.js"></script>

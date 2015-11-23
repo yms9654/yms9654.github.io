@@ -1,0 +1,20 @@
+---
+layout: post
+title: 'boot2docker init 할때 x509: certificate signed by unknown authority 문제로 iso
+  파일 다운로드 못할때 해결 방법'
+date: '2015-02-08T17:32:00.000-08:00'
+author: MinSik
+tags:
+- docker
+- error
+- 'x509: certificate signed by unknown authority'
+- boot2docker
+- proxy
+- init
+- mac
+modified_time: '2015-02-08T17:32:27.455-08:00'
+blogger_id: tag:blogger.com,1999:blog-902933560129960148.post-7428971394188914154
+blogger_orig_url: http://yms9654.blogspot.com/2015/02/boot2docker-init-x509-certificate.html
+---
+
+mac에서 docker를 사용하려면 boot2docker를 설치해야한다.<br />패키지가 제공되어 간단히 설치는 할 수 있는데<br />설치 후 작업할때 에러가 발생했다.<br /><br />$ boot2docker init<br /><br />Latest release for boot2docker/boot2docker is v1.4.1<br />Downloading boot2docker ISO image...<br />error in run: Failed to download ISO image: Get https://s3.amazonaws.com/github-cloud/releases/14930729/3de263a4-853f-11e4-9f2b-59bd5ac8d5f3.iso?response-content-disposition=attachment%3B%20filename%3Dboot2docker.iso&amp;response-content-type=application/octet-stream&amp;AWSAccessKeyId=AKIAISTNZFOVBIJMK3TQ&amp;Expires=1423443118&amp;Signature=h%2Fqa9MUAcDPQYFnNsNBDDV2Rh%2Fc%3D: x509: certificate signed by unknown authority<br /><br />사내에 프록시 서버가 있는 경우는 이런 에러가 많이 발생 할것 같다.<br />이런경우 침착하게 wget 으로 iso 파일을 다운 받으면 된다.<br /><br />$ cd ~/.boot2docker<br />$ wget https://github.com/boot2docker/boot2docker/releases/download/v1.4.1/boot2docker.iso --no-check-certificate<br /><br />iso 파일 디폴트 경로는 ~/.boot2docker/boot2docker.iso 이다.<br />이렇게 해주고 다시하면 정상적으로 동작한다.<br /><br />$ boot2docker init<br /><br /><br />

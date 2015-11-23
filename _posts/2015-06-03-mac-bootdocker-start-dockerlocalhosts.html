@@ -1,0 +1,17 @@
+---
+layout: post
+title: 'mac 에서 bootdocker start 실행할때 docker@localhost''s passwored: 이런 메세지 나오는 경우'
+date: '2015-06-03T00:19:00.000-07:00'
+author: MinSik
+tags:
+- docker
+- boot2docker
+- password
+- start
+- mac
+modified_time: '2015-06-03T00:19:16.249-07:00'
+blogger_id: tag:blogger.com,1999:blog-902933560129960148.post-3684302582304717389
+blogger_orig_url: http://yms9654.blogspot.com/2015/06/mac-bootdocker-start-dockerlocalhosts.html
+---
+
+이게 boot2docker 버전 문제인지 최신 버전을 설치했더니 이런 에러가 발생했다.<br />해결방법은<br /><br />1. .ssh/id_boot2docker.pub 파일의 내용을 복사 해둔다.<br />2. boot2docker ssh 로 접속. 패스워드는 tcuser<br />3. ~/.ssh/authorized_keys 파일을 열고 아까 복사해놓은 텍스트를 추가.<br />4. 밖으로 빠져나가서 다시 boot2docker start 하니 잘 동작한다!

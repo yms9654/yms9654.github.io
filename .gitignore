@@ -2,3 +2,5 @@ _site
 node_modules
 **.swp
 **.swo
+.bundle
+vendor/bundle/**

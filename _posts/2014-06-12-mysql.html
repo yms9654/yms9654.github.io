@@ -1,0 +1,13 @@
+---
+layout: post
+title: mysql 명령어 모음
+date: '2014-06-11T19:02:00.002-07:00'
+author: MinSik
+tags:
+- mysql
+modified_time: '2015-02-25T18:08:36.354-08:00'
+blogger_id: tag:blogger.com,1999:blog-902933560129960148.post-5613815987573454349
+blogger_orig_url: http://yms9654.blogspot.com/2014/06/mysql.html
+---
+
+<br /><div><ul><li>DB 백업</li><ul><li>mysqldump -u{id} -p {db} &gt; dump.sql</li></ul><li>DB 복원</li><ul><li>mysql -u{id} -p {db} &lt; dump.sql</li></ul><li>사용자 추가</li><ul><li>create user 'userId'@'%' identified by 'password';</li></ul><li>권한 추가</li><ul><li>grant all privileges on *.* to 'userid'@'%';</li><li>flush privileges;</li></ul></ul></div>

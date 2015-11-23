@@ -1,0 +1,17 @@
+---
+layout: post
+title: git repository 에서 키워드 검색하는 루비 스크립트
+date: '2015-01-29T23:27:00.000-08:00'
+author: MinSik
+tags:
+- keyword search
+- gitlab
+- repository
+- git
+- git log
+modified_time: '2015-02-01T22:49:32.507-08:00'
+blogger_id: tag:blogger.com,1999:blog-902933560129960148.post-7053861071907736549
+blogger_orig_url: http://yms9654.blogspot.com/2015/01/git-repository.html
+---
+
+오늘 git repository 전체에서 키워드 검색을 할 필요가 생겨서 루비로 스크립트를 작성해보았다.<br />git log 명령어에 생각보다 다양한 옵션이 많아서 그걸 사용했다.<br /><ul><li>--no-pager 는 git log가 기본으로 more 처럼 동작하기 때문에 추가했고</li><li>--since는 기간을 설정할 수 있고</li><li>-G를 사용하면 커밋한 코드에서 검색할 수 있다.</li><li>-- 옵션 뒤에 파일 타입을 정의 한다.</li></ul>gitlab 서버에서 동작하는 스크립트이며 모든 네임스페이스와 프로젝트를 검색한다.<br />아래 코드는 'upload'라는 키워드로 java 파일에서 검색하는 예제.<br /><script src="https://gist.github.com/yms9654/c273786296ecf97caff6.js"></script> <br />

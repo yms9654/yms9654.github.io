@@ -1,0 +1,16 @@
+---
+layout: post
+title: rails 프로젝트 인터넷 안되는 서버에서 bundle install 방법
+date: '2014-07-08T23:58:00.001-07:00'
+author: MinSik
+tags:
+- bundle install
+- rails
+- local
+- bundle package
+modified_time: '2014-07-08T23:58:40.283-07:00'
+blogger_id: tag:blogger.com,1999:blog-902933560129960148.post-7516720987864482133
+blogger_orig_url: http://yms9654.blogspot.com/2014/07/rails-bundle-install.html
+---
+
+사내망 같은 경우 인터넷을 잘 안 뚫어줘서 bundle install 이 안될 때가 있다.<br />이런 경우<br />1. 인터넷이 되는 로컬에서 bundle package 하면<br />2. vendor/cache 디렉토리가 생성되는데<br />3. 이 디렉토리를 서버로 복사 후<br />4. bundle install --local 해주면 된다.

@@ -1,0 +1,17 @@
+---
+layout: post
+title: ruby로 ssh 접속해서 원격으로 커맨드 실행시키기
+date: '2015-03-12T02:52:00.001-07:00'
+author: MinSik
+tags:
+- ssh
+- net-ssh-session
+- ruby
+- session
+- gem
+modified_time: '2015-03-12T02:53:44.192-07:00'
+blogger_id: tag:blogger.com,1999:blog-902933560129960148.post-5605183968714791062
+blogger_orig_url: http://yms9654.blogspot.com/2015/03/ruby-ssh.html
+---
+
+서버에 명령어를 날릴때 보통 ssh를 이용하는데<br />ruby 스크립트를 이용해서 자동화 할 수 있다.<br /><br /><a href="https://github.com/sosedoff/net-ssh-session">https://github.com/sosedoff/net-ssh-session</a><br /><br />위의 gem을 사용하면 편리하다.<br />ruby에서 기본적으로 제공하는 net-ssh 의 경우 커맨드를 날릴때마다<br />세션 유지가 안되서 좀 불편하다.<br />예를 들어서 cd 로 디렉토리를 변경하고 ls를 해도 home 디렉토리의 파일이 리스팅 된다.<br /><br />사용법은 readme가 워낙 잘 되어 있어서 간단하게만 설명하면<br /><pre style="background-color: #f7f7f7; border-radius: 3px; box-sizing: border-box; color: #333333; font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace; font-size: 13.6000003814697px; font-stretch: normal; line-height: 1.45; margin-bottom: 16px; overflow: auto; padding: 16px; word-wrap: normal;"><code style="background: transparent; border-radius: 3px; border: 0px; box-sizing: border-box; display: inline; font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace; font-size: 13.6000003814697px; line-height: inherit; margin: 0px; max-width: initial; overflow: initial; padding: 0px; word-break: normal; word-wrap: normal;">gem install net-ssh-session</code></pre>위의 명령어로 gem을 설치하고<br /><pre style="background-color: #f7f7f7; border-radius: 3px; box-sizing: border-box; color: #333333; font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace; font-size: 13.6000003814697px; font-stretch: normal; line-height: 1.45; overflow: auto; padding: 16px; word-break: normal; word-wrap: normal;"><span class="pl-k" style="box-sizing: border-box; color: #a71d5d;">require</span> <span class="pl-s1" style="box-sizing: border-box; color: #183691;"><span class="pl-pds" style="box-sizing: border-box;">'</span>net/ssh/session<span class="pl-pds" style="box-sizing: border-box;">'</span></span><br /><br /><span class="pl-c" style="box-sizing: border-box; color: #969896;"># Initialize a new connection</span><br />session <span class="pl-k" style="box-sizing: border-box; color: #a71d5d;">=</span> <span class="pl-s3" style="box-sizing: border-box; color: #0086b3;">Net</span>::<span class="pl-s3" style="box-sizing: border-box; color: #0086b3;">SSH</span>::<span class="pl-s3" style="box-sizing: border-box; color: #0086b3;">Session</span>.<span class="pl-k" style="box-sizing: border-box; color: #a71d5d;">new</span>(host, user, password)<br /><br /><span class="pl-c" style="box-sizing: border-box; color: #969896;"># Connect to server</span><br />session.open<br /><br /><span class="pl-c" style="box-sizing: border-box; color: #969896;"># Execute a remote command</span><br />result <span class="pl-k" style="box-sizing: border-box; color: #a71d5d;">=</span> session.run(<span class="pl-s1" style="box-sizing: border-box; color: #183691;"><span class="pl-pds" style="box-sizing: border-box;">"ls</span><span class="pl-pds" style="box-sizing: border-box;">"</span></span>)<br /></pre><div>이런 식으로 사용하면 된다.</div><br /><br />

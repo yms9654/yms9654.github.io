@@ -1,0 +1,16 @@
+---
+layout: post
+title: crontab 사용시 주의사항
+date: '2015-02-08T17:18:00.000-08:00'
+author: MinSik
+tags:
+- path 설정
+- crontab
+- file size 0
+- mysqldump
+modified_time: '2015-02-08T17:18:34.571-08:00'
+blogger_id: tag:blogger.com,1999:blog-902933560129960148.post-4742109008180660240
+blogger_orig_url: http://yms9654.blogspot.com/2015/02/crontab.html
+---
+
+오늘 crontab으로 DB 백업 설정을 하다가<br />이 문제로 삽질을 해서 간단하게 정리해보았다.<br /><br />내가 작성한 스크립트는 간단하게<br /><br />mysqldump -uroot screencast &gt; /Users/mickey/backup/$(date +%Y-%m-%d).sql<br /><br />이렇게 되어있었다.<br />당연히 스크립트를 그냥 실행했을때는 잘 동작하였고<br /><br />매일 새벽 1시에 돌게 하려고 crontab에 아래와 같이 등록하였다.<br /><br />00 01 * * * /Users/mickey/projects/screencast/backup.sh<br /><br />그런데 나중에 확인해보니 백업 파일 사이즈가 전부 0 이었다!!<br />당황스러워서 이것저것 구글링을 해보면서 삽질을 하다가<br />stackoverflow에서 힌트를 찾았다.<br /><br /><a href="http://stackoverflow.com/questions/4995689/mysqldump-creates-empty-file-when-run-via-cron-on-linux">http://stackoverflow.com/questions/4995689/mysqldump-creates-empty-file-when-run-via-cron-on-linux</a><br /><br />이걸 보면 스크립트 뒤에 2&gt;&amp;1 이걸 붙여서 로그를 확인해보라고 되어있었다.<br />역시 에러가 날땐 로그를 확인해봐야 하는데 나는 그냥 삽질만 하고 있었다...<br />그래서 위의 스크립트를 수정해서<br /><br />mysqldump -uroot screencast &gt; /Users/mickey/backup/$(date +%Y-%m-%d).sql 2&gt;&amp;1<br /><br />이렇게 하고 돌렸더니 백업 파일에 에러 로그가 나왔다.<br />mysqldump 파일을 못찾는다는 에러였다.<br /><br />그냥 bash 에서는 path에 설정이 되어 있어서<br />잘 동작하였지만 crontab으로 돌릴때는 path 설정이 안 먹히는것 같다.<br />그래서 아래와 같이 full path로 수정하니 잘 동작하였다.<br /><br />/usr/local/bin/mysqldump -uroot screencast &gt; /Users/mickey/backup/$(date +%Y-%m-%d).sql<br /><br />오늘의 교훈은..<br /><br />1. 에러가 날땐 로그를 잘 확인하자.<br />2. crontab으로 돌릴때 안전하게 full path를 다 써주자.

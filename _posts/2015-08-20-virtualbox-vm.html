@@ -1,0 +1,15 @@
+---
+layout: post
+title: "실행중인 Virtualbox vm에서 포트 포워딩 설정하기"
+date: '2015-08-20T00:56:00.000-07:00'
+author: MinSik
+tags:
+- virtualbox
+- vm
+- port forwarding
+modified_time: '2015-08-20T00:56:39.244-07:00'
+blogger_id: tag:blogger.com,1999:blog-902933560129960148.post-1341409701014221265
+blogger_orig_url: http://yms9654.blogspot.com/2015/08/virtualbox-vm.html
+---
+
+Mac에서 docker를 사용하다 보면 vm 기반이라 불편한게 좀 많은데<br />그 중 하나가 포트 포워딩 설정이다.<br />아래 명령어를 사용하면 실행중인 vm의 포트포워딩 설정을 변경할 수 있다.<br /><br /><blockquote class="tr_bq">VBoxManage controlvm "boot2docker-vm" natpf1 "tcp-port8888,tcp,,8888,,8888";</blockquote>

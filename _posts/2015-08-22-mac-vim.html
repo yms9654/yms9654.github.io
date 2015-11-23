@@ -1,0 +1,17 @@
+---
+layout: post
+title: mac에 vim 제대로 설치하기
+date: '2015-08-21T18:54:00.001-07:00'
+author: MinSik
+tags:
+- ruby
+- compile
+- python
+- vim
+- mac
+modified_time: '2015-08-21T18:57:23.557-07:00'
+blogger_id: tag:blogger.com,1999:blog-902933560129960148.post-2299679409633536797
+blogger_orig_url: http://yms9654.blogspot.com/2015/08/mac-vim.html
+---
+
+사실 mac에는 기본적으로 vim이 설치되어 있다.<br />하지만 ruby나 python을 사용하는 플러그인을 설치할때 에러가 난다.<br />예를 들면 내가 좋아하는 자동완성 플러그인 <a href="https://github.com/Valloric/YouCompleteMe">YouCompleteMe</a> 을 사용하지 못한다.<br /><br /><h3> 1. 소스 다운로드</h3>소스는 github에서 다운 받는다.<br /><a href="https://github.com/vim/vim">https://github.com/vim/vim</a><br /><br /><h3> 2. 소스 컴파일</h3><blockquote class="tr_bq">./configure --prefix=/usr/local/ \ --enable-rubyinterp \ --enable-pythoninterp \ --with-features=huge<br />make &amp;&amp; make install</blockquote>(permission error 가 발생하면 sudo를 붙여준다.) <br /><br /><h3>3. .bash_profile 파일 수정</h3><blockquote class="tr_bq">export EDITOR="vim"<br />alias vi="/usr/local/bin/vim" </blockquote><div><br /></div>

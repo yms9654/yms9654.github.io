@@ -1,0 +1,15 @@
+---
+layout: post
+title: boot2docker 사용시 프록시 설정 방법
+date: '2015-02-09T23:28:00.000-08:00'
+author: MinSik
+tags:
+- "프록시 설정"
+- docker. boot2docker
+- proxy
+modified_time: '2015-02-09T23:28:10.033-08:00'
+blogger_id: tag:blogger.com,1999:blog-902933560129960148.post-5769883025765971620
+blogger_orig_url: http://yms9654.blogspot.com/2015/02/boot2docker.html
+---
+
+사내에 프록시 서버가 있는 경우 아래와 같은 설정이 필요하다.<br /><br /><br /><h3>* docker 이미지 접속</h3><br />$ boot2docker ssh<br />$ sudo vi /var/lib/boot2docker/profile<br /><br /><h3>* 파일을 열고 아래 내용 추가</h3><br />export HTTP_PROXY=http://your.proxy.name:8080<br />export HTTPS_PROXY=http://your.proxy.name:8080<br /><br /><h3>* 회사 인증서 파일을 ca-certificate.crt 에 추가</h3><br />$ cat ca.pem &gt;&gt; /etc/ssl/certs/ca-certificates.crt<br /><br /><h3>* docker 서비스 재시작</h3><div><br /></div>$ /etc/init.d/docker restart

@@ -1,0 +1,18 @@
+---
+layout: post
+title: websocket을 사용해서 콘솔의 STDIN/OUT을 브라우저로!
+date: '2015-02-24T22:39:00.000-08:00'
+author: MinSik
+tags:
+- websocket
+- web-vmstat
+- vmstat
+- trend
+- websocketd
+- github
+modified_time: '2015-02-24T22:39:26.505-08:00'
+blogger_id: tag:blogger.com,1999:blog-902933560129960148.post-2537267226908816268
+blogger_orig_url: http://yms9654.blogspot.com/2015/02/websocket-stdinout.html
+---
+
+<b><span style="font-size: large;">websocketd 소개</span></b><br /><b><span style="font-size: large;"><br /></span></b><a href="https://github.com/joewalnes/websocketd">https://github.com/joewalnes/websocketd</a><br /><br />이거 참 아이디어가 좋아보이는데요.<br />콘솔에서 사용하는 프로그램의 STDIN/STDOUT을 websocket을 통해서 웹브라우저에서 볼수 있도록 해주는 유틸입니다.<br /><br />잘 생각해보면 활용방안이 많을 것 같습니다.<br />간단한 예제로는 1 부터 10까지 카운트하는 쉘스크립트를 짜서 웹브라우져에서 결과를 볼수 있는 예제가 있구요.<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://snag.gy/iVS3C.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://snag.gy/iVS3C.jpg" height="306" width="400" /></a></div>프로젝트 README 파일에 보면 vmstat 정보(시스템 사용량)를 웹브라우저를 통해서 이쁘게 볼수 있는 예제가 나와있습니다.<br /><div class="separator" style="clear: both; text-align: center;"><a href="https://github.com/joewalnes/web-vmstats/raw/master/screenshot.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="640" src="https://github.com/joewalnes/web-vmstats/raw/master/screenshot.png" width="404" /></a></div><div class="separator" style="clear: both; text-align: left;">실행해보면 실시간으로 그래프가 변하는데</div><div class="separator" style="clear: both; text-align: left;">웹소켓을 통한 스트리밍이라 데이터를 저장할 필요도 없고 참 좋은것 같습니다.</div>

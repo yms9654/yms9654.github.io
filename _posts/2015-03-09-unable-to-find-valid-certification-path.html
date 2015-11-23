@@ -1,0 +1,19 @@
+---
+layout: post
+title: "이클립스 플러그인 설치할때 'unable to find valid certification path to requested target'
+  에러 나는 경우"
+date: '2015-03-08T19:10:00.000-07:00'
+author: MinSik
+tags:
+- eclipse
+- "플러그인"
+- plugin
+- "이클립스"
+- "설치 오류"
+- unable to find valid certification path to requested target
+modified_time: '2015-03-08T19:10:35.185-07:00'
+blogger_id: tag:blogger.com,1999:blog-902933560129960148.post-6929123493437039700
+blogger_orig_url: http://yms9654.blogspot.com/2015/03/unable-to-find-valid-certification-path.html
+---
+
+이번에도 회사 프록시 서버 때문에 생기는 문제다.<br /><br /><b>1. 회사 인증서를 java keytool을 사용해서 import</b><br /><br />자바가&nbsp;C:\Program Files\Java\jdk1.7.0_75 여기에 설치되어 있다고 하면<br />keytool은 bin 디렉토리에 있다.<br /><br />$ keytool -import -alias proxy<br />&nbsp; &nbsp;-file Example.cer<br />&nbsp; &nbsp;-keystore&nbsp;C:\Program Files\Java\jdk1.7.0_75\jre\lib\security\cacerts<br /><br />비밀번호를 새로 설정해준다.<br /><br /><b>2. 이클립스 설정파일에 추가</b><br /><br />이클립스가 설치된 위치에 보면 eclipse.ini 파일이 있는데 이 파일을 열고<br /><br />-Djavax.net.ssl.trustStore=C:\Program Files\Java\jdk1.7.0_75\jre\lib\security\cacerts<br />-Djava.net.ssl.trustStorePassword=changeit<br /><br />위의 코드를 추가한다.<br />패스워드 부분은 위에서 새로 설정한 패스워드를 넣어준다.<br /><br />이제 이클립스를 새로 시작하면 플러그인 설치가 잘 될것이다.
